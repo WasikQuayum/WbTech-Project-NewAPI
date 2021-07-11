@@ -1,11 +1,15 @@
 let newsAccordion = document.getElementById('newsAccordion');
-let url = 'https://saurav.tech/NewsAPI/sources.json';
-var req = new Request(url);
+var head = 'https://cors-anywhere.herokuapp.com/'
+// var url = 'https://newsapi.org/v2/top-headlines?' +
+//           'country=us&' +
+//           'apiKey=72af05367ee9498ca8bdd42c4a9672e7';
+ let url = 'https://saurav.tech/NewsAPI/top-headlines/category/health/in.json';
+var req = new Request(head+url);
 function getData(){
     fetch(url).then(function(response) {
         return response.json();
     }).then(data =>{
-         console.log(data);
+        console.log(data);
         let articles = data.articles;
         console.log(articles);
         let newsHtml = "";
@@ -25,7 +29,3 @@ function getData(){
     })
 }
 getData();
-// 72af05367ee9498ca8bdd42c4a9672e7
-// var url = 'https://newsapi.org/v2/top-headlines?' +
-//           'country=us&' +
-//           'apiKey=72af05367ee9498ca8bdd42c4a9672e7';
